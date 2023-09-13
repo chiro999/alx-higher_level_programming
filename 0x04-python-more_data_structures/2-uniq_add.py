@@ -7,4 +7,4 @@ def uniq_add(my_list=[]):
         if num not in new_list:
             sum += num
             new_list.append(num)
-    retrun sum
+    return sum
