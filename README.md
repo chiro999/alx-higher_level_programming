@@ -1,1 +1,1 @@
-No more C
+various topics in python
