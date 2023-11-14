@@ -30,10 +30,10 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """Return the JSON conversion of a list of dicts.
+        """Return the JSON serialization of a list of dicts.
 
         Args:
-            list_dictionaries (list): A list of dictionaries
+            list_dictionaries (list): A list of dictionaries.
         """
         if list_dictionaries is None or list_dictionaries == []:
             return "[]"
@@ -44,7 +44,7 @@ class Base:
         """Write the JSON serialization of a list of objects to a file.
 
         Args:
-            list_objs (list): A list of inherited Base instances
+            list_objs (list): A list of inherited Base instances.
         """
         filename = cls.__name__ + ".json"
         with open(filename, "w") as jsonfile:
@@ -61,8 +61,8 @@ class Base:
         Args:
             json_string (str): A JSON str representation of a list of dicts.
         Returns:
-            If json_string is none or empty - an empty list
-            Else -  python list represented by json_string
+            If json_string is None or empty - an empty list.
+            Otherwise - the Python list represented by json_string.
         """
         if json_string is None or json_string == "[]":
             return []
@@ -70,10 +70,10 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        """Return a class instanciated form a dictionary of attributs.
+        """Return a class instantied from a dictionary of attributes.
 
         Args:
-            **dictionary (dict): Key/value pairs of attributes to initalize.
+            **dictionary (dict): Key/value pairs of attributes to initialize.
         """
         if dictionary and dictionary != {}:
             if cls.__name__ == "Rectangle":
@@ -99,7 +99,7 @@ class Base:
                 list_dicts = Base.from_json_string(jsonfile.read())
                 return [cls.create(**d) for d in list_dicts]
         except IOError:
-         return []
+            return []
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
